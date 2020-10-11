@@ -3,13 +3,13 @@ package etcd
 import (
 	"go.etcd.io/etcd/clientv3"
 
-	"github.com/uptimus/common/etcd"
+	custometcd "github.com/uptimus/common/etcd"
 )
 
 type EtcdService struct {
 }
 
-func NewEtcdService(config *etcd.Config) (*EtcdService, error) {
+func NewEtcdService(config *custometcd.Config) (*EtcdService, error) {
 
 	_, err := clientv3.New(clientv3.Config{
 		Endpoints:   config.Endpoints,
