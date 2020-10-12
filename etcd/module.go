@@ -5,10 +5,11 @@ import (
 )
 
 type EtcdService struct {
+	Client *clientv3.Client
 }
 
 func NewEtcdService(config *Config) (*EtcdService, error) {
-	_, err := clientv3.New(clientv3.Config{
+	client, err := clientv3.New(clientv3.Config{
 		Endpoints:   config.Endpoints,
 		DialTimeout: config.DialTimeout,
 	})
@@ -16,5 +17,5 @@ func NewEtcdService(config *Config) (*EtcdService, error) {
 		return nil, err
 	}
 
-	return &EtcdService{}, nil
+	return &EtcdService{client}, nil
 }
