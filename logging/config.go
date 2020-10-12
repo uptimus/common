@@ -3,9 +3,10 @@ package logging
 import (
 	"fmt"
 
-	"gitlab.wvservices.com/waves/gateways/gw-commons/config"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
+
+	"github.com/uptimus/common/config"
 )
 
 const (
